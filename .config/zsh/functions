@@ -1,0 +1,24 @@
+# Allow zsh to interpret bash functions
+type emulate >/dev/null 2>/dev/null || alias emulate=true
+
+# Markdown utilities (requires `brew install pandoc`)
+function mdless () {
+  emulate -L ksh
+  local mdfile=$1
+  if [ -z ${mdfile:+x} ]; then mdfile="README.md"; fi
+  case $mdfile in
+      -h | --help)
+        print "mdless usage: 'mdless myfile.md' or 'mdless' (defaults to README.md)"
+      ;;
+      *)
+        mdcat $mdfile | less
+      ;;
+  esac
+}
+
+function mdcat () {
+  emulate -L ksh
+  local mdfile=$1
+  if [ -z ${mdfile:+x} ]; then mdfile="README.md"; fi
+  pandoc -s -f markdown -t man $mdfile | groff -T utf8 -man
+}
