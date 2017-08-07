@@ -2,6 +2,8 @@
 
 This repo contains a bunch of helpers to improve my productivity in the Mac world.  Feel free to use and abuse this for your own needs.  You may prefer to use bash (via bash-it) and indeed some of the functions are written specifically in bash but you'll have to work out how to make any changes yourself as that is out of scope of this project. 
 
+For this configuration to work correctly you will have to be using the zsh shell and have [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed.
+
 # iTerm2 #
 
 Install and use iTerm, it has some functionality that allows for things like powerline fonts which are used by both oh-my-zsh and vim in this configuration (via certain plugins)
@@ -15,6 +17,9 @@ By default I use darcula (blueshirts/darcula) but feel free to use your preferre
 [/blueshirts/darcula](https://github.com/blueshirts/darcula)
 
 VI tagging is handled via eTags that can be installed via brew:
+
+
+VI behaviour will not change until plugins have been installed.  Run ```vim -c VundleUpdate -c quitall``` to do this (or use the vupdate alias).
 
 ```brew install etags```
 
@@ -36,7 +41,7 @@ VI tagging is handled via eTags that can be installed via brew:
 |7|'cd -7'|
 |8|'cd -8'|
 |9|'cd -9'|
-|_|sudo|
+|\_|sudo|
 |afind|'ack -il'|
 |d|'dirs -v | head -10'|
 |g|git|
@@ -47,7 +52,7 @@ VI tagging is handled via eTags that can be installed via brew:
 |gb|'git branch'|
 |gba|'git branch -a'|
 |gbd|'git branch -d'|
-|gbda|'git branch --no-color --merged \| command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" \| command xargs -n 1 git branch -d'|
+|gbda|'git branch --no-color --merged \| command grep -vE "^(\*|\s\*(master|develop|dev)\s\*$)" \| command xargs -n 1 git branch -d'|
 |gbl|'git blame -b -w'|
 |gbnm|'git branch --no-merged'|
 |gbr|'git branch --remote'|
