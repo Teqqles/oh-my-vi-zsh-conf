@@ -3,3 +3,5 @@ alias reload='clear; source ~/.zshrc'
 alias iswet='curl -4 wttr.in/London'
 
 alias vupdate='vim -c VundleUpdate -c quitall'
+
+alias dotls='docker --tlsverify -H'
